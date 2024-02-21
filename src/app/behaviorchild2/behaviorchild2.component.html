@@ -1,0 +1,19 @@
+<div class="shadow mt-4">
+    <div class="p-5"  *ngIf="behavior_obj.firstname">
+
+        Firstname: <input type="text" placeholder="" class="form-control mb-3" [(ngModel)]="behavior_obj.firstname" required>
+        Lastname<input type="text" class="form-control mb-3" [(ngModel)]="behavior_obj.lastname" required>
+        Age:<input type="text" class="form-control mb-3" [(ngModel)]="behavior_obj.age" required>
+        Email:<input type="text" class="form-control mb-3" [(ngModel)]="behavior_obj.email" required>
+        <button class="btn btn-info" type="submit" (click)="edit()">Edit</button>
+        <button class="btn btn-danger ms-3">Delete</button>
+        <!-- <p>Firstname:{{behavior_obj.firstname}}</p>
+        <p>Lastname:{{behavior_obj.lastname}}</p>
+        <p>Age:{{behavior_obj.age}}</p>
+        <p>Email:{{behavior_obj.email}}</p> -->
+
+       
+    </div>
+
+
+</div>

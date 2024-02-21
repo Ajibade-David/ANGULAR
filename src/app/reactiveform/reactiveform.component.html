@@ -1,0 +1,144 @@
+<p>reactiveform works!</p>
+<div class="container">
+    <div class="row">
+<div class="col-4 shadow">
+    <h1 class="text-center text-success">Reactive Form</h1>
+    <div class="row">
+        <div class="p-2">
+            <form [formGroup]="formone">
+                <input type="text" class="form-control my-2" placeholder="Firstname" formControlName="firstname" [class.is-valid]="formone.get('firstname')?.valid && formone.get('firstname')?.dirty"  [class.is-invalid]="formone.get('firstname')?.invalid && formone.get('firstname')?.touched" >
+                <div *ngIf="formone.get('firstname')?.touched && formone.get('firstname')?.invalid">
+                    <span *ngIf="formone.get('firstname')?.errors?.['required']" class="text-danger">
+                        This Field must not be Empty
+                    </span> 
+                    <span *ngIf="formone.get('firstname')?.errors?.['maxlength']" class="text-danger">
+                        This Field must be 10 Characters
+                    </span> 
+
+                </div>
+                <input type="text" class="form-control my-2" placeholder="Lastname" formControlName="lastname" [class.is-valid]="formone.get('lastname')?.valid && formone.get('lastname')?.dirty"  [class.is-invalid]="formone.get('lastname')?.invalid && formone.get('lastname')?.touched">
+                <div *ngIf="formone.get('lastname')?.touched && formone.get('lastname')?.invalid">
+                    <span *ngIf="formone.get('lastname')?.errors?.['required']" class="text-danger">
+                        This Field must not be Empty
+                    </span> 
+
+                </div>
+                <input type="email" class="form-control my-2" placeholder="email" formControlName="email" [class.is-valid]="formone.get('email')?.valid && formone.get('email')?.dirty"  [class.is-invalid]="formone.get('email')?.invalid && formone.get('email')?.touched">
+                <div *ngIf="formone.get('email')?.touched && formone.get('email')?.invalid">
+                <span *ngIf="formone.get('email')?.errors?.['required']" class="text-danger">
+                    This Field must not be Empty
+                </span>
+                <span *ngIf="formone.get('email')?.errors?.['email']" class="text-danger">
+                   Enter A Valid Email
+                </span>
+            </div>
+                <input type="password" class="form-control my-2" placeholder="Password" formControlName="password" [class.is-valid]="formone.get('password')?.valid && formone.get('password')?.dirty"  [class.is-invalid]="formone.get('password')?.invalid && formone.get('password')?.touched">
+                <div *ngIf="formone.get('password')?.touched && formone.get('password')?.invalid">
+                    <span *ngIf="formone.get('password')?.errors?.['required']" class="text-danger">
+                        This Field must not be Empty
+                    </span>
+                    <span *ngIf="formone.get('password')?.errors?.['minlength']" class="text-danger">
+                       Enter A Password with at least five characters
+                    </span>
+                </div>
+                <button class="btn btn-success w-100" [disabled]="formone.invalid" (click)="submitformone()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="col-4 shadow">
+    <h1 class="text-center text-success">Reactive Form 2</h1>
+    <div class="row">
+        <div class="p-2">
+            <form [formGroup]="formtwo">
+                <input type="text" class="form-control my-2" placeholder="Firstname" formControlName="firstname2" [class.is-valid]="formtwo.get('firstname2')?.valid && formtwo.get('firstname2')?.dirty"  [class.is-invalid]="formtwo.get('firstname2')?.invalid && formtwo.get('firstname2')?.touched" >
+                <div *ngIf="formtwo.get('firstname2')?.touched && formtwo.get('firstname2')?.invalid">
+                    <span *ngIf="formtwo.get('firstname2')?.errors?.['required']" class="text-danger">
+                        This Field must not be Empty
+                    </span> 
+                    <span *ngIf="formtwo.get('firstname2')?.errors?.['maxlength']" class="text-danger">
+                        This Field must be 10 Characters
+                    </span> 
+
+                </div>
+                <input type="text" class="form-control my-2" placeholder="Lastname" formControlName="lastname2" [class.is-valid]="formtwo.get('lastname2')?.valid && formtwo.get('lastname2')?.dirty"  [class.is-invalid]="formtwo.get('lastname2')?.invalid && formtwo.get('lastname2')?.touched">
+                <div *ngIf="formtwo.get('lastname2')?.touched && formtwo.get('lastname2')?.invalid">
+                    <span *ngIf="formtwo.get('lastname2')?.errors?.['required']" class="text-danger">
+                        This Field must not be Empty
+                    </span> 
+
+                </div>
+                <input type="email" class="form-control my-2" placeholder="email" formControlName="email2" [class.is-valid]="formtwo.get('email2')?.valid && formtwo.get('email2')?.dirty"  [class.is-invalid]="formtwo.get('email2')?.invalid && formtwo.get('email2')?.touched">
+                <div *ngIf="formtwo.get('email2')?.touched && formtwo.get('email2')?.invalid">
+                <span *ngIf="formtwo.get('email2')?.errors?.['required']" class="text-danger">
+                    This Field must not be Empty
+                </span>
+                <span *ngIf="formtwo.get('email2')?.errors?.['email2']" class="text-danger">
+                   Enter A Valid Email
+                </span>
+            </div>
+                <input type="password" class="form-control my-2" placeholder="Password" formControlName="password2" [class.is-valid]="formtwo.get('password2')?.valid && formtwo.get('password2')?.dirty"  [class.is-invalid]="formtwo.get('password2')?.invalid && formtwo.get('password2')?.touched">
+                <div *ngIf="formtwo.get('password2')?.touched && formtwo.get('password2')?.invalid">
+                    <span *ngIf="formtwo.get('password2')?.errors?.['required']" class="text-danger">
+                        This Field must not be Empty
+                    </span>
+                    <span *ngIf="formtwo.get('password2')?.errors?.['minlength']" class="text-danger">
+                       Enter A Password with at least five characters
+                    </span>
+                </div>
+                <button class="btn btn-success w-100" [disabled]="formtwo.invalid">Submit</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="col-4 shadow">
+        <h1 class="text-center text-success">Reactive Form 3</h1>
+        <div class="row">
+            <div class="p-2">
+                <form [formGroup]="formthree">
+                    <input type="text" class="form-control my-2" placeholder="Firstname" formControlName="firstname3" [class.is-valid]="formthree.get('firstname3')?.valid && formthree.get('firstname3')?.dirty"  [class.is-invalid]="formthree.get('firstname3')?.invalid && formthree.get('firstname3')?.touched" >
+                    <div *ngIf="formthree.get('firstname3')?.touched && formthree.get('firstname3')?.invalid">
+                        <span *ngIf="formthree.get('firstname3')?.errors?.['required']" class="text-danger">
+                            This Field must not be Empty
+                        </span> 
+                        <span *ngIf="formthree.get('firstname3')?.errors?.['maxlength']" class="text-danger">
+                            This Field must be 10 Characters
+                        </span> 
+    
+                    </div>
+                    <input type="text" class="form-control my-2" placeholder="Lastname" formControlName="lastname3" [class.is-valid]="formthree.get('lastname3')?.valid && formthree.get('lastname3')?.dirty"  [class.is-invalid]="formthree.get('lastname3')?.invalid && formthree.get('lastname3')?.touched">
+                    <div *ngIf="formthree.get('lastname3')?.touched && formthree.get('lastname3')?.invalid">
+                        <span *ngIf="formthree.get('lastname3')?.errors?.['required']" class="text-danger">
+                            This Field must not be Empty
+                        </span> 
+    
+                    </div>
+                    <input type="email" class="form-control my-2" placeholder="email" formControlName="email3" [class.is-valid]="formthree.get('email3')?.valid && formthree.get('email3')?.dirty"  [class.is-invalid]="formthree.get('email3')?.invalid && formthree.get('email3')?.touched">
+                    <div *ngIf="formthree.get('email3')?.touched && formthree.get('email3')?.invalid">
+                    <span *ngIf="formthree.get('email3')?.errors?.['required']" class="text-danger">
+                        This Field must not be Empty
+                    </span>
+                    <span *ngIf="formthree.get('email3')?.errors?.['email3']" class="text-danger">
+                       Enter A Valid Email
+                    </span>
+                </div>
+                    <input type="password" class="form-control my-2" placeholder="Password" formControlName="password3" [class.is-valid]="formthree.get('password3')?.valid && formthree.get('password3')?.dirty"  [class.is-invalid]="formthree.get('password3')?.invalid && formthree.get('password3')?.touched">
+                    <div *ngIf="formthree.get('password3')?.touched && formthree.get('password3')?.invalid">
+                        <span *ngIf="formthree.get('password3')?.errors?.['required']" class="text-danger">
+                            This Field must not be Empty
+                        </span>
+                        <span *ngIf="formthree.get('password3')?.errors?.['minlength']" class="text-danger">
+                           Enter A Password with at least five characters
+                        </span>
+                    </div>
+                    <button class="btn btn-success w-100" [disabled]="formthree.invalid">Submit</button>
+                </form>
+            </div>
+            </div>
+        </div>
+</div>
+</div>
+
+

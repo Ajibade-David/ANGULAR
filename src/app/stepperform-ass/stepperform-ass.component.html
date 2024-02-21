@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-8 shadow">
+        <form (ngSubmit)="submit()" #stepperForm="ngForm">
+          <div *ngIf="step === 1" [formGroup]="formone">
+            <h2>Step 1: Personal Information</h2>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" required formControlName="firstname" [class.is-valid]="formone.get('firstname')?.valid && formone.get('firstname')?.dirty" [class.is-invalid]="formone.get('firstname')?.invalid && formone.get('firstname')?.touched">
+              <div *ngIf="formone.get('firstname')?.touched && formone.get('firstname')?.invalid">
+                <span *ngIf="formone.get('firstname')?.errors?.['required']" class="text-danger">This Field must not be Empty</span> 
+                <span *ngIf="formone.get('firstname')?.errors?.['maxlength']" class="text-danger">This Field must be 10 Characters</span> 
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" required formControlName="lastname" [class.is-valid]="formone.get('lastname')?.valid && formone.get('lastname')?.dirty" [class.is-invalid]="formone.get('lastname')?.invalid && formone.get('lastname')?.touched">
+              <div *ngIf="formone.get('lastname')?.touched && formone.get('lastname')?.invalid">
+                <span *ngIf="formone.get('lastname')?.errors?.['required']" class="text-danger">This Field must not be Empty</span> 
+                <span *ngIf="formone.get('lastname')?.errors?.['maxlength']" class="text-danger">This Field must be 10 Characters</span> 
+              </div>
+            </div>
+            <button class="btn btn-primary w-100 mt-3" (click)="nextStep()" type="submit" [disabled]="formone.invalid">Next</button>
+          </div>
+        </form>
+        
+<div *ngIf="step === 2" [formGroup]="formtwo">
+    <h2>Step 2: Contact Information</h2>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" required formControlName="email" [class.is-valid]="formtwo.get('email')?.valid && formtwo.get('email')?.dirty" [class.is-invalid]="formtwo.get('email')?.invalid && formtwo.get('email')?.touched">
+      <div *ngIf="formtwo.get('email')?.touched && formtwo.get('email')?.invalid">
+        <span *ngIf="formtwo.get('email')?.errors?.['required']" class="text-danger">This Field must not be Empty</span>
+        <span *ngIf="formtwo.get('email')?.errors?.['email']" class="text-danger">Enter A Valid Email</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="tel" class="form-control" id="phone" name="phone" required formControlName="phonenumber" [class.is-valid]="formtwo.get('phonenumber')?.valid && formtwo.get('phonenumber')?.dirty" [class.is-invalid]="formtwo.get('phonenumber')?.invalid && formtwo.get('phonenumber')?.touched">
+      <div *ngIf="formtwo.get('phonenumber')?.touched && formtwo.get('phonenumber')?.invalid">
+        <span *ngIf="formtwo.get('phonenumber')?.errors?.['required']" class="text-danger">This Field must not be Empty</span>
+      </div>
+    </div>
+    <button class="btn btn-secondary" (click)="prevStep()">Previous</button>
+    <button class="btn btn-primary" (click)="nextStep()" [disabled]="formtwo.invalid">Next</button>
+  </div>
+  
+        <form *ngIf="step === 3" [formGroup]="formthree">
+          <h2>Step 3: Address Information</h2>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" name="address" required formControlName="address" [class.is-valid]="formthree.get('address')?.valid && formthree.get('address')?.dirty" [class.is-invalid]="formthree.get('address')?.invalid && formthree.get('address')?.touched">
+            <div *ngIf="formthree.get('address')?.touched && formthree.get('address')?.invalid">
+              <span *ngIf="formthree.get('address')?.errors?.['required']" class="text-danger">This Field must not be Empty</span>
+            </div>
+          </div>
+          <button class="btn btn-secondary" (click)="prevStep()">Previous</button>
+          <button type="submit" class="btn btn-success" [disabled]="formthree.invalid" (click)="submit()">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

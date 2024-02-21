@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="col-5 mx-auto shadow p-5">
+        <h1 class="text-center text-primary">This is the Child Component</h1>
+        <p>{{receivetext}}</p>
+    </div>
+
+    <div class="shadow mx-auto  col-5 p-5">
+    <input type="text" class="form-control my-2" [(ngModel)]="sendresponse">
+    <button (click)="send()" class="btn btn-success mx-auto my-100 w-100">Send</button>
+
+    
+    </div>
+</div>

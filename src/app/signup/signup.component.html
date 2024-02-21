@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="col-6 mx-auto shadow">
+        <h3 class="text-center text-primary">Sign Up Page</h3>
+        <input type="text" placeholder="Firstname" class="form-control my-2" [(ngModel)]="firstname">
+        <input type="text" placeholder="Lastname" class="form-control my-2" [(ngModel)]="lastname">
+        <input type="text" placeholder="email" class="form-control my-2" [(ngModel)]="email">
+        <input type="text" placeholder="Age" class="form-control my-2" [(ngModel)]="age">
+        <input type="text" placeholder="Address" class="form-control my-2" [(ngModel)]="address">
+        <input type="text" placeholder="Password" class="form-control my-2" [(ngModel)]="password">
+        <p>{{this.message}}</p>
+        <button class="btn btn-primary" (click)="signUp()">signUp</button>
+    </div>
+
+</div>
